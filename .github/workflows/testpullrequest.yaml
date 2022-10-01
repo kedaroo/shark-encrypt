@@ -1,0 +1,21 @@
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    name: Test PR code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install node 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Install NPM Dependencies
+        run: npm i
+      - name: Test
+        run: npm run test
+      - name: Build Project
+        run: npm run build
