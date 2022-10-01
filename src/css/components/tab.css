@@ -1,0 +1,28 @@
+main {
+  max-width: 750px;
+  margin: 3rem auto 1rem auto;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: auto;
+  justify-content: center;
+}
+
+.tabs button {
+  background: none;
+  border: 1px solid black;
+  padding: 0.5rem 3rem;
+  border-radius: 1px;
+}
+
+.tabs button.active {
+  background: black;
+  color: white;
+}
+
+.tabs i {
+  margin-right: 1rem;
+}
