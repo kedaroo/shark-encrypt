@@ -13,7 +13,7 @@ exports.encryptMessage = async (req, res) => {
     sharkName, secretMessage, secretKey, selectedStyle,
   } = req.body;
 
-  if ((!sharkName || !secretMessage || !secretKey, !selectedStyle)) {
+  if (!sharkName || !secretMessage || !secretKey || !selectedStyle) {
     return res.status(400).json({
       success: false,
       message: 'Send sharkName, secretMessage, secretKey and selectedStyle',
