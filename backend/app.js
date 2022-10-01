@@ -9,6 +9,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
 
+const encryptMessage = require('./routes/encryptMessage');
+
+app.use('/api/v1/', encryptMessage);
+
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'hello world!' });
 });
