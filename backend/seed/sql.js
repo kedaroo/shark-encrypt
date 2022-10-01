@@ -1,4 +1,4 @@
-exports.dropEncryptionLogTableSQL = "DROP TABLE IF EXISTS encryption_log;";
+exports.dropEncryptionLogTableSQL = 'DROP TABLE IF EXISTS encryption_log;';
 
 exports.createEncryptionLogTableSQL = `CREATE TABLE encryption_log (
     id int PRIMARY KEY AUTO_INCREMENT,
