@@ -1,0 +1,16 @@
+.footer {
+  background-color: var(--clr-primary);
+  color: white;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer .fa-heart {
+  color: red;
+  margin: 0.5rem;
+}
+
+.footer a {
+  text-decoration: underline;
+  margin-left: 0.5rem;
+}

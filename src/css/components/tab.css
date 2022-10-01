@@ -1,0 +1,41 @@
+main {
+  max-width: 500px;
+  margin: 2rem auto 1rem auto;
+  padding: 1rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: auto;
+  justify-content: center;
+  font-style: 0.9rem;
+}
+
+.tabs li {
+  width: 50%;
+}
+
+.tabs button {
+  background: none;
+  border: 1px solid black;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 1px;
+  font-size: 0.9rem;
+}
+
+.tabs button.active {
+  background: black;
+  color: white;
+}
+
+.tabs i {
+  margin-right: 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}

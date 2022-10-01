@@ -1,0 +1,52 @@
+.form {
+  margin-top: 2rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.form input,
+.form textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.form .refresh {
+  position: relative;
+}
+
+.form .refresh-icon {
+  position: absolute;
+  right: 10px;
+  bottom: 14px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.shark-styles {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.mt-md {
+  margin-top: 1rem;
+  display: block;
+}
+
+.form button {
+  display: block;
+  margin: 1rem auto;
+  background-color: var(--clr-primary);
+  border: 1px solid var(--clr-primary);
+  color: white;
+  padding: 0.5rem 2rem;
+  font-size: 0.9rem;
+}
