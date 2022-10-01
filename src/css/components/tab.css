@@ -1,6 +1,6 @@
 main {
-  max-width: 750px;
-  margin: 3rem auto 1rem auto;
+  max-width: 500px;
+  margin: 2rem auto 1rem auto;
 }
 
 .tabs {
@@ -9,6 +9,7 @@ main {
   list-style: none;
   margin: auto;
   justify-content: center;
+  font-style: 0.9rem;
 }
 
 .tabs button {
@@ -16,6 +17,7 @@ main {
   border: 1px solid black;
   padding: 0.5rem 3rem;
   border-radius: 1px;
+  font-size: 0.9rem;
 }
 
 .tabs button.active {
