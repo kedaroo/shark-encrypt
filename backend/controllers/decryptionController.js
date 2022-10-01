@@ -9,7 +9,6 @@ const connection = require('../config/database');
 const { SELECT_ENCRYPTION } = require('../services/decryptionServices');
 
 exports.decryptMessage = async (req, res) => {
-  console.log('got hit');
   const { sharkName, secretKey } = req.body;
 
   if (!sharkName || !secretKey || !req.files) {
