@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/shark-encrypt/static/css/main.073c9b0a.css",
+    "main.js": "/shark-encrypt/static/js/main.d7a3710b.js",
+    "index.html": "/shark-encrypt/index.html",
+    "main.073c9b0a.css.map": "/shark-encrypt/static/css/main.073c9b0a.css.map",
+    "main.d7a3710b.js.map": "/shark-encrypt/static/js/main.d7a3710b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.d7a3710b.js"
+  ]
+}
