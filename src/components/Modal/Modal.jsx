@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 export default function Modal({
-  title,
   closeModal,
   closeOnBackdrop,
   children,
@@ -15,9 +14,6 @@ export default function Modal({
           <button className="modal-close-btn" onClick={closeModal} type="button">
             <i className="fas fa-times txt-red" id="modal-dismiss-btn" />
           </button>
-          <div className="txt-dark fs-lg fw-bold">
-            {title}
-          </div>
           <div className="txt-dark-gray lh-md">{children}</div>
         </div>
       </div>
@@ -27,7 +23,6 @@ export default function Modal({
 }
 
 Modal.propTypes = {
-  title: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
   closeOnBackdrop: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
