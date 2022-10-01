@@ -6,7 +6,7 @@ const internalServerError = require('../utils/internalServerError');
 const connection = require('../config/database');
 const { INSERT_ENCRYPTION } = require('../services/encryptionServices');
 
-const { STABLE_DIFFUSION_VERSION: version } = process.env;
+const { STABLE_DIFFUSION_VERSION: version, REPLICATE_API_TOKEN: token } = process.env;
 
 exports.encryptMessage = async (req, res) => {
   const {
@@ -31,7 +31,7 @@ exports.encryptMessage = async (req, res) => {
       },
       {
         headers: {
-          Authorization: 'Token dbcfd87c2620c59de14df45ea39c2dd2997069a3',
+          Authorization: `Token ${token}`,
         },
       },
     );
@@ -40,7 +40,7 @@ exports.encryptMessage = async (req, res) => {
       setTimeout(async function pollPrediction() {
         const imgUrl = await axios.get(response.data.urls.get, {
           headers: {
-            Authorization: 'Token dbcfd87c2620c59de14df45ea39c2dd2997069a3',
+            Authorization: `Token ${token}`,
           },
         });
 
