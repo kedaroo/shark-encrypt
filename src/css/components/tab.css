@@ -1,6 +1,7 @@
 main {
   max-width: 500px;
   margin: 2rem auto 1rem auto;
+  padding: 1rem;
 }
 
 .tabs {
@@ -12,10 +13,15 @@ main {
   font-style: 0.9rem;
 }
 
+.tabs li {
+  width: 50%;
+}
+
 .tabs button {
   background: none;
   border: 1px solid black;
-  padding: 0.5rem 3rem;
+  width: 100%;
+  padding: 0.5rem;
   border-radius: 1px;
   font-size: 0.9rem;
 }
@@ -27,4 +33,9 @@ main {
 
 .tabs i {
   margin-right: 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }

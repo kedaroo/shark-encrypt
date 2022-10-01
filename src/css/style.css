@@ -4,6 +4,7 @@
 @import './base/root.css';
 @import './base/reset.css';
 
+@import './components/dragdropfile.css';
 @import './components/footer.css';
 @import './components/form.css';
 @import './components/header.css';
