@@ -10,8 +10,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
 
 const encryptMessage = require('./routes/encryptMessage');
+const decryptMessage = require('./routes/decryptMessage');
 
 app.use('/api/v1/', encryptMessage);
+app.use('/api/v1/', decryptMessage);
 
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'hello world!' });
