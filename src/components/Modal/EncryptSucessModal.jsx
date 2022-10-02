@@ -8,12 +8,16 @@ export default function EncryptSucessModal({
   secretKey,
   sharkName,
   sharkImageURL,
+  handleDownload,
+  copySharkName,
+  copySecretKey,
 }) {
   return (
     <Modal
       title="Test"
       closeModal={closeModal}
       closeOnBackdrop={closeOnBackdrop}
+      showClose
       maxWidth="650px"
     >
       <p
@@ -26,7 +30,7 @@ export default function EncryptSucessModal({
           <div className="info-label">Shark Name: </div>
           <div className="flex">
             <div className="info">{sharkName}</div>
-            <button type="button" className="copy-button">
+            <button type="button" className="copy-button" onClick={copySharkName}>
               <i className="fa-regular fa-copy" />
             </button>
           </div>
@@ -35,7 +39,7 @@ export default function EncryptSucessModal({
           <div className="info-label">Secret Key: </div>
           <div className="flex">
             <div className="info">{secretKey}</div>
-            <button type="button" className="copy-button">
+            <button type="button" className="copy-button" onClick={copySecretKey}>
               <i className="fa-regular fa-copy" />
             </button>
           </div>
@@ -46,7 +50,7 @@ export default function EncryptSucessModal({
             <div className="image-wrapper">
               <img src={sharkImageURL} alt="shark" className="shark-image" />
             </div>
-            <button type="button" className="download-button">
+            <button type="button" className="download-button" onClick={handleDownload}>
               Download image
               <i className="fa-solid fa-download" />
             </button>
@@ -63,4 +67,7 @@ EncryptSucessModal.propTypes = {
   secretKey: PropTypes.string.isRequired,
   sharkName: PropTypes.string.isRequired,
   sharkImageURL: PropTypes.string.isRequired,
+  handleDownload: PropTypes.func.isRequired,
+  copySharkName: PropTypes.func.isRequired,
+  copySecretKey: PropTypes.func.isRequired,
 };
