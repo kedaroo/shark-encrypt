@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DragDropFile from '../../components/DragDropFile/DragDropFile';
 import DecryptSuccessModal from '../../components/Modal/DecryptSucessModal';
+import ErrorModal from '../../components/Modal/ErrorModal';
 import LoadingModal from '../../components/Modal/LoadingModal';
 
 export default function DecryptForm() {
@@ -30,12 +31,12 @@ export default function DecryptForm() {
       });
       const result = await res.json();
       if (!result.success) {
-        setError('Image could not be decrypted');
+        setError(true);
       } else {
         setSecretMessage(result.secretMessage);
       }
     } catch (err) {
-      setError('Image could not be decrypted');
+      setError(true);
     }
 
     setIsLoading(false);
@@ -96,7 +97,6 @@ export default function DecryptForm() {
       <div>
         <button type="submit">Decrypt your message</button>
       </div>
-      <p>{error && error}</p>
       <p>
         {isLoading && (
           <LoadingModal showClose={false} message="Decrypting your message" />
@@ -109,6 +109,9 @@ export default function DecryptForm() {
           copySecretMessage={() => navigator.clipboard.writeText(secretMessage)}
         />
       )}
+      {
+        error && <ErrorModal title="Hello Imposter!" message="Please check your inputs." closeModal={() => setError(false)} showClose />
+      }
     </form>
   );
 }
