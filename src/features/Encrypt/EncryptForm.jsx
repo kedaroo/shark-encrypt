@@ -17,8 +17,6 @@ export default function EncryptForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  console.log(selectedStyle, sharkName, secretMessage, secretKey);
-
   useEffect(() => {
     setSharkName(generateSharkName());
   }, []);
@@ -26,7 +24,6 @@ export default function EncryptForm() {
   const API_ENDPOINT = 'https://shark-encrypt.herokuapp.com/api/v1/encryptMessage';
 
   const handleSubmit = async (e) => {
-    console.log('handleSubmit Working');
     e.preventDefault();
     setIsLoading(true);
     setError('');
@@ -48,7 +45,6 @@ export default function EncryptForm() {
       setImgUrl(json.imgUrl);
     } catch (err) {
       setError('An error occured. Please try again');
-      console.log(err);
     }
 
     setIsLoading(false);
@@ -69,10 +65,6 @@ export default function EncryptForm() {
         link.parentNode.removeChild(link);
       });
   };
-
-  console.log(isLoading);
-  console.log(error);
-  console.log(`imgUrl: ${imgUrl}`);
 
   return (
     <form className="form encrypt-form" onSubmit={handleSubmit}>
