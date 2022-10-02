@@ -8,7 +8,7 @@ export default function Header() {
         <img src={sharkImage} alt="shark" />
         {/* <span className="logo-title">encrypt</span> */}
       </div>
-      <i className="fa-regular fa-circle-question" />
+      {/* <i className="fa-regular fa-circle-question" /> */}
     </header>
   );
 }
