@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/shark-encrypt/static/css/main.7606dfb4.css",
-    "main.js": "/shark-encrypt/static/js/main.af4a2ab1.js",
+    "main.css": "/shark-encrypt/static/css/main.1b215a78.css",
+    "main.js": "/shark-encrypt/static/js/main.3be6016c.js",
+    "static/media/eatingshark.gif": "/shark-encrypt/static/media/eatingshark.301bffe39880ea024ed7.gif",
     "static/media/shark_cyberpunk.png": "/shark-encrypt/static/media/shark_cyberpunk.d55ecf6bc43227d6792a.png",
     "static/media/shark_anime.png": "/shark-encrypt/static/media/shark_anime.5f170bb6cabf2e060d96.png",
     "static/media/shark_painting.png": "/shark-encrypt/static/media/shark_painting.e4784d98b8b07aa193af.png",
@@ -9,11 +10,11 @@
     "static/media/sharkdance.gif": "/shark-encrypt/static/media/sharkdance.956a57e6fcce0f97f511.gif",
     "static/media/shark1.png": "/shark-encrypt/static/media/shark1.7d8e05b1de049e19f9ed.png",
     "index.html": "/shark-encrypt/index.html",
-    "main.7606dfb4.css.map": "/shark-encrypt/static/css/main.7606dfb4.css.map",
-    "main.af4a2ab1.js.map": "/shark-encrypt/static/js/main.af4a2ab1.js.map"
+    "main.1b215a78.css.map": "/shark-encrypt/static/css/main.1b215a78.css.map",
+    "main.3be6016c.js.map": "/shark-encrypt/static/js/main.3be6016c.js.map"
   },
   "entrypoints": [
-    "static/css/main.7606dfb4.css",
-    "static/js/main.af4a2ab1.js"
+    "static/css/main.1b215a78.css",
+    "static/js/main.3be6016c.js"
   ]
 }
