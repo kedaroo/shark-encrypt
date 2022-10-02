@@ -4,14 +4,14 @@ import Modal from './Modal';
 
 export default function DecryptSuccessModal({
   closeModal,
-  closeOnBackdrop,
   secretMessage,
+  copySecretMessage,
 }) {
   return (
     <Modal
       title="Test"
       closeModal={closeModal}
-      closeOnBackdrop={closeOnBackdrop}
+      showClose
       maxWidth="500px"
     >
       <p
@@ -24,7 +24,7 @@ export default function DecryptSuccessModal({
           <div className="info-label">Secret message: </div>
           <div className="flex-center">
             <textarea value={secretMessage} rows={4} readOnly />
-            <button type="button" className="download-button" style={{ marginTop: '1.5rem' }}>
+            <button type="button" className="download-button" style={{ marginTop: '1.5rem' }} onClick={copySecretMessage}>
               Copy to clipboard
               <i className="fa-regular fa-copy" />
             </button>
@@ -37,6 +37,6 @@ export default function DecryptSuccessModal({
 
 DecryptSuccessModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
-  closeOnBackdrop: PropTypes.func.isRequired,
   secretMessage: PropTypes.string.isRequired,
+  copySecretMessage: PropTypes.func.isRequired,
 };

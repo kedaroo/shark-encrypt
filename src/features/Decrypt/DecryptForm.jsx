@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DragDropFile from '../../components/DragDropFile/DragDropFile';
+import DecryptSuccessModal from '../../components/Modal/DecryptSucessModal';
+import LoadingModal from '../../components/Modal/LoadingModal';
 
 export default function DecryptForm() {
   const [sharkName, setSharkName] = useState('');
@@ -9,9 +11,11 @@ export default function DecryptForm() {
   const [imageError, setimageError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSecretMessage(null);
     setIsLoading(true);
     setError('');
     const formData = new FormData(e.target);
@@ -54,6 +58,12 @@ export default function DecryptForm() {
     setImage(selected);
   };
 
+  useEffect(() => {
+    if (secretMessage) {
+      setShowSuccessModal(true);
+    }
+  }, [secretMessage]);
+
   return (
     <form className="form encrypt-form" onSubmit={handleSubmit}>
       <div className="refresh">
@@ -87,9 +97,19 @@ export default function DecryptForm() {
       <div>
         <button type="submit">Decrypt your message</button>
       </div>
-      <p>{error}</p>
-      <p>{isLoading}</p>
-      {secretMessage && <p>{secretMessage}</p>}
+      <p>{error && error}</p>
+      <p>
+        {isLoading && (
+          <LoadingModal showClose={false} message="Decrypting your message" />
+        )}
+      </p>
+      {showSuccessModal && (
+        <DecryptSuccessModal
+          closeModal={() => { setShowSuccessModal(false); setSecretMessage(null); }}
+          secretMessage={secretMessage}
+          copySecretMessage={() => navigator.clipboard.writeText(secretMessage)}
+        />
+      )}
     </form>
   );
 }
