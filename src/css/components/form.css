@@ -19,7 +19,7 @@
 .form .refresh-icon {
   position: absolute;
   right: 10px;
-  bottom: 14px;
+  bottom: 12px;
   font-size: 1.3rem;
   cursor: pointer;
 }
@@ -28,12 +28,25 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 }
-
+.shark-styles-label {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
 .flex-col {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+}
+
+.shark-styles img {
+  border-radius: 10px;
+}
+
+.style-label {
+  text-align: center;
+  font-style: italic;
 }
 
 .mt-md {
@@ -49,4 +62,5 @@
   color: white;
   padding: 0.5rem 2rem;
   font-size: 0.9rem;
+  border-radius: 5px;
 }

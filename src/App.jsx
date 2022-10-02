@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <div>
         <Header />
+        <h1>Shark Encrypt</h1>
         <main>
           <ul className="tabs">
             <TabNavItem

@@ -9,7 +9,7 @@ export default function StyleCard({
 }) {
   return (
     <label className="flex-col" htmlFor={styleName}>
-      <span>{styleName}</span>
+      <div className="style-label">{styleName}</div>
       <img src={src} alt={`${styleName} Shark`} width={100} />
       <input
         checked={checked === styleName}

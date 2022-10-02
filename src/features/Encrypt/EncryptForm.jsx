@@ -19,6 +19,7 @@ export default function EncryptForm() {
         </label>
         <i className="fa-solid fa-arrows-rotate refresh-icon" />
       </div>
+      <div className="shark-styles-label">Select Shark Style</div>
       <div className="shark-styles">
         <StyleCard
           src={CartoonShark}
