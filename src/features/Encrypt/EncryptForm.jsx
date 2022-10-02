@@ -129,6 +129,8 @@ export default function EncryptForm() {
         <button type="submit">Encrypt your message</button>
       </div>
       <button onClick={handleDownload} type="button">Download</button>
+      {/* ignore the line below */}
+      {isLoading && error}
     </form>
   );
 }
