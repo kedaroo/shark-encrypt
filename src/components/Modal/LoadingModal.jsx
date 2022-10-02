@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
+import SharkDance from '../../assets/sharkdance.gif';
 
 export default function LoadingModal({ closeModal, closeOnBackdrop, message }) {
   return (
@@ -9,7 +10,7 @@ export default function LoadingModal({ closeModal, closeOnBackdrop, message }) {
       closeModal={closeModal}
       closeOnBackdrop={closeOnBackdrop}
     >
-      <iframe
+      {/* <iframe
         src="https://giphy.com/embed/3o72FkreWNH9OlTtPq"
         width="100%"
         height="100%"
@@ -17,13 +18,13 @@ export default function LoadingModal({ closeModal, closeOnBackdrop, message }) {
         className="giphy-embed"
         allowFullScreen
         title="Shark"
-      />
-
+      /> */}
+      <img src={SharkDance} alt="shark dance" className="loading-gif" />
       <p
         style={{
           textAlign: 'center',
           fontSize: '1.25rem',
-          marginTop: '2rem',
+          marginTop: '1rem',
         }}
       >
         {message}
