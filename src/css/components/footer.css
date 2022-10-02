@@ -1,8 +1,8 @@
 .footer {
-  background-color: var(--clr-primary);
+  background-color: #0099ff;
   color: white;
   padding: 1rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .footer .fa-heart {
