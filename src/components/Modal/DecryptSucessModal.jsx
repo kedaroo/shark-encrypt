@@ -19,7 +19,7 @@ export default function DecryptSuccessModal({
           marginTop: '1rem',
         }}
       >
-        <h2>Message decyrypted successfully 🦈</h2>
+        <h2>Message decrypted successfully 🦈</h2>
         <div className="mt-md">
           <div className="info-label">Secret message: </div>
           <div className="flex-center">
