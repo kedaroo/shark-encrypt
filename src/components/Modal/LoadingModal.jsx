@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
+import SharkDance from '../../assets/sharkdance.gif';
 
-export default function LoadingModal({ closeModal, closeOnBackdrop, message }) {
+export default function LoadingModal({
+  message,
+  showClose,
+}) {
   return (
     <Modal
       title="Test"
-      closeModal={closeModal}
-      closeOnBackdrop={closeOnBackdrop}
+      closeModal={() => {}}
+      closeOnBackdrop={() => {}}
+      showClose={showClose}
+      maxWidth="400px"
     >
-      <iframe
+      {/* <iframe
         src="https://giphy.com/embed/3o72FkreWNH9OlTtPq"
         width="100%"
         height="100%"
@@ -17,13 +23,13 @@ export default function LoadingModal({ closeModal, closeOnBackdrop, message }) {
         className="giphy-embed"
         allowFullScreen
         title="Shark"
-      />
-
+      /> */}
+      <img src={SharkDance} alt="shark dance" className="loading-gif" />
       <p
         style={{
           textAlign: 'center',
           fontSize: '1.25rem',
-          marginTop: '2rem',
+          marginTop: '1rem',
         }}
       >
         {message}
@@ -33,7 +39,6 @@ export default function LoadingModal({ closeModal, closeOnBackdrop, message }) {
 }
 
 LoadingModal.propTypes = {
-  closeModal: PropTypes.func.isRequired,
-  closeOnBackdrop: PropTypes.func.isRequired,
   message: PropTypes.string.isRequired,
+  showClose: PropTypes.bool.isRequired,
 };

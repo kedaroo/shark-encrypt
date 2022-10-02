@@ -1,9 +1,9 @@
-const {
+import {
   uniqueNamesGenerator,
   adjectives,
   colors,
   names,
-} = require('unique-names-generator');
+} from 'unique-names-generator';
 
 export default function generateSharkName() {
   const shortName = uniqueNamesGenerator({
