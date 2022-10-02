@@ -3,12 +3,17 @@ import PropTypes from 'prop-types';
 import Modal from './Modal';
 import SharkDance from '../../assets/sharkdance.gif';
 
-export default function LoadingModal({ closeModal, closeOnBackdrop, message }) {
+export default function LoadingModal({
+  message,
+  showClose,
+}) {
   return (
     <Modal
       title="Test"
-      closeModal={closeModal}
-      closeOnBackdrop={closeOnBackdrop}
+      closeModal={() => {}}
+      closeOnBackdrop={() => {}}
+      showClose={showClose}
+      maxWidth="400px"
     >
       {/* <iframe
         src="https://giphy.com/embed/3o72FkreWNH9OlTtPq"
@@ -34,7 +39,6 @@ export default function LoadingModal({ closeModal, closeOnBackdrop, message }) {
 }
 
 LoadingModal.propTypes = {
-  closeModal: PropTypes.func.isRequired,
-  closeOnBackdrop: PropTypes.func.isRequired,
   message: PropTypes.string.isRequired,
+  showClose: PropTypes.bool.isRequired,
 };
