@@ -78,7 +78,6 @@ export default function DecryptForm() {
             id="shark-name"
           />
         </label>
-        <i className="fa-solid fa-arrows-rotate refresh-icon" />
       </div>
       <label htmlFor="secret-key" className="mt-md">
         Secret key
