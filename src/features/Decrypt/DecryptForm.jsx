@@ -31,7 +31,7 @@ export default function DecryptForm() {
         setSecretMessage(result.secretMessage);
       }
     } catch (err) {
-      console.error(err);
+      setError('Image could not be decrypted');
     }
 
     setIsLoading(false);
