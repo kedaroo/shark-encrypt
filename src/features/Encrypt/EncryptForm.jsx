@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import StyleCard from './StyleCard';
 import {
   AnimeShark,
@@ -6,18 +6,78 @@ import {
   CartoonShark,
   CyberpunkShark,
 } from '../../assets/styleExamples/styleExamples';
+import generateSharkName from '../../utils/sharkNameGenerator';
 
 export default function EncryptForm() {
   const [selectedStyle, setSelectedStyle] = useState('Cartoon');
+  const [sharkName, setSharkName] = useState('');
+  const [secretMessage, setSecretMessage] = useState('');
+  const [secretKey, setSecretKey] = useState('');
+  const [imgUrl, setImgUrl] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    setSharkName(generateSharkName());
+  }, []);
+
+  const API_ENDPOINT = 'https://shark-encrypt.herokuapp.com/api/v1/encryptMessage';
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError('');
+    try {
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        body: JSON.stringify({
+          sharkName,
+          secretMessage,
+          secretKey,
+          selectedStyle,
+        }),
+        headers: {
+          'Content-type': 'application/json',
+        },
+      });
+
+      const json = await response.json();
+      setImgUrl(json.imgUrl);
+    } catch (err) {
+      setError('An error occured. Please try again');
+    }
+
+    setIsLoading(false);
+  };
+
+  const handleDownload = async () => {
+    fetch(imgUrl, {
+      method: 'GET',
+    })
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'Shark Encrypt.png');
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      });
+  };
 
   return (
-    <form className="form encrypt-form">
+    <form className="form encrypt-form" onSubmit={handleSubmit}>
       <div className="refresh">
         <label htmlFor="shark-name">
           Shark Name
-          <input type="text" id="shark-name" />
+          <input type="text" value={sharkName} readOnly id="shark-name" />
         </label>
-        <i className="fa-solid fa-arrows-rotate refresh-icon" />
+        <i
+          className="fa-solid fa-arrows-rotate refresh-icon"
+          aria-hidden="true"
+          onClick={() => setSharkName(generateSharkName())}
+        />
       </div>
       <div className="shark-styles-label">Select Shark Style</div>
       <div className="shark-styles">
@@ -48,15 +108,29 @@ export default function EncryptForm() {
       </div>
       <label htmlFor="secret-message" className="mt-md">
         Secret message
-        <textarea type="text" id="secret-message" />
+        <textarea
+          type="text"
+          required
+          value={secretMessage}
+          onChange={(e) => setSecretMessage(e.target.value)}
+          id="secret-message"
+        />
       </label>
       <label htmlFor="secret-key" className="mt-md">
         Secret key
-        <input type="text" id="secret-key" />
+        <input
+          type="password"
+          value={secretKey}
+          onChange={(e) => setSecretKey(e.target.value)}
+          id="secret-key"
+        />
       </label>
       <div>
-        <button type="button">Encrypt your message</button>
+        <button type="submit">Encrypt your message</button>
       </div>
+      <button onClick={handleDownload} type="button">Download</button>
+      {/* ignore the line below */}
+      {isLoading && error}
     </form>
   );
 }
