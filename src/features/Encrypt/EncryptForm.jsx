@@ -7,6 +7,8 @@ import {
   CyberpunkShark,
 } from '../../assets/styleExamples/styleExamples';
 import generateSharkName from '../../utils/sharkNameGenerator';
+import LoadingModal from '../../components/Modal/LoadingModal';
+import EncryptSucessModal from '../../components/Modal/EncryptSucessModal';
 
 export default function EncryptForm() {
   const [selectedStyle, setSelectedStyle] = useState('Cartoon');
@@ -16,6 +18,7 @@ export default function EncryptForm() {
   const [imgUrl, setImgUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     setSharkName(generateSharkName());
@@ -27,6 +30,7 @@ export default function EncryptForm() {
     e.preventDefault();
     setIsLoading(true);
     setError('');
+    setImgUrl(null);
     try {
       const response = await fetch(API_ENDPOINT, {
         method: 'POST',
@@ -45,9 +49,9 @@ export default function EncryptForm() {
       setImgUrl(json.imgUrl);
     } catch (err) {
       setError('An error occured. Please try again');
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   const handleDownload = async () => {
@@ -65,6 +69,12 @@ export default function EncryptForm() {
         link.parentNode.removeChild(link);
       });
   };
+
+  useEffect(() => {
+    if (imgUrl) {
+      setShowSuccessModal(true);
+    }
+  }, [imgUrl]);
 
   return (
     <form className="form encrypt-form" onSubmit={handleSubmit}>
@@ -128,9 +138,22 @@ export default function EncryptForm() {
       <div>
         <button type="submit">Encrypt your message</button>
       </div>
-      <button onClick={handleDownload} type="button">Download</button>
-      {/* ignore the line below */}
-      {isLoading && error}
+      {isLoading && (
+        <LoadingModal showClose={false} message="Encrypting your message" />
+      )}
+      {error && <div>{error}</div>}
+      {showSuccessModal && (
+        <EncryptSucessModal
+          closeModal={() => setShowSuccessModal(false)}
+          closeOnBackdrop={() => setShowSuccessModal(false)}
+          secretKey={secretKey}
+          sharkName={sharkName}
+          sharkImageURL={imgUrl}
+          copySharkName={() => navigator.clipboard.writeText(sharkName)}
+          copySecretKey={() => navigator.clipboard.writeText(secretKey)}
+          handleDownload={handleDownload}
+        />
+      )}
     </form>
   );
 }
