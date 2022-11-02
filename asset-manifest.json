@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shark-encrypt/static/css/main.1b215a78.css",
-    "main.js": "/shark-encrypt/static/js/main.3be6016c.js",
+    "main.js": "/shark-encrypt/static/js/main.f640cc09.js",
     "static/media/eatingshark.gif": "/shark-encrypt/static/media/eatingshark.301bffe39880ea024ed7.gif",
     "static/media/shark_cyberpunk.png": "/shark-encrypt/static/media/shark_cyberpunk.d55ecf6bc43227d6792a.png",
     "static/media/shark_anime.png": "/shark-encrypt/static/media/shark_anime.5f170bb6cabf2e060d96.png",
@@ -11,10 +11,10 @@
     "static/media/shark1.png": "/shark-encrypt/static/media/shark1.7d8e05b1de049e19f9ed.png",
     "index.html": "/shark-encrypt/index.html",
     "main.1b215a78.css.map": "/shark-encrypt/static/css/main.1b215a78.css.map",
-    "main.3be6016c.js.map": "/shark-encrypt/static/js/main.3be6016c.js.map"
+    "main.f640cc09.js.map": "/shark-encrypt/static/js/main.f640cc09.js.map"
   },
   "entrypoints": [
     "static/css/main.1b215a78.css",
-    "static/js/main.3be6016c.js"
+    "static/js/main.f640cc09.js"
   ]
 }
