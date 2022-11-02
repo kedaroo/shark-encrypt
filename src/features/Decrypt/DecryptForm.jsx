@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Confetti from 'react-confetti';
 import DragDropFile from '../../components/DragDropFile/DragDropFile';
 import DecryptSuccessModal from '../../components/Modal/DecryptSucessModal';
 import ErrorModal from '../../components/Modal/ErrorModal';
@@ -103,15 +104,30 @@ export default function DecryptForm() {
         )}
       </p>
       {showSuccessModal && (
-        <DecryptSuccessModal
-          closeModal={() => { setShowSuccessModal(false); setSecretMessage(null); }}
-          secretMessage={secretMessage}
-          copySecretMessage={() => navigator.clipboard.writeText(secretMessage)}
+        <>
+          <Confetti
+            width={window.innerWidth - 100}
+            height={window.innerHeight}
+            recycle={false}
+          />
+          <DecryptSuccessModal
+            closeModal={() => {
+              setShowSuccessModal(false);
+              setSecretMessage(null);
+            }}
+            secretMessage={secretMessage}
+            copySecretMessage={() => navigator.clipboard.writeText(secretMessage)}
+          />
+        </>
+      )}
+      {error && (
+        <ErrorModal
+          title="Hello Imposter!"
+          message="Please check your inputs."
+          closeModal={() => setError(false)}
+          showClose
         />
       )}
-      {
-        error && <ErrorModal title="Hello Imposter!" message="Please check your inputs." closeModal={() => setError(false)} showClose />
-      }
     </form>
   );
 }

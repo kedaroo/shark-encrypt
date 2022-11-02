@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Confetti from 'react-confetti';
 import StyleCard from './StyleCard';
 import {
   AnimeShark,
@@ -143,16 +144,23 @@ export default function EncryptForm() {
       )}
       {error && <div>{error}</div>}
       {showSuccessModal && (
-        <EncryptSucessModal
-          closeModal={() => setShowSuccessModal(false)}
-          closeOnBackdrop={() => setShowSuccessModal(false)}
-          secretKey={secretKey}
-          sharkName={sharkName}
-          sharkImageURL={imgUrl}
-          copySharkName={() => navigator.clipboard.writeText(sharkName)}
-          copySecretKey={() => navigator.clipboard.writeText(secretKey)}
-          handleDownload={handleDownload}
-        />
+        <>
+          <Confetti
+            width={window.innerWidth - 100}
+            height={window.innerHeight}
+            recycle={false}
+          />
+          <EncryptSucessModal
+            closeModal={() => setShowSuccessModal(false)}
+            closeOnBackdrop={() => setShowSuccessModal(false)}
+            secretKey={secretKey}
+            sharkName={sharkName}
+            sharkImageURL={imgUrl}
+            copySharkName={() => navigator.clipboard.writeText(sharkName)}
+            copySecretKey={() => navigator.clipboard.writeText(secretKey)}
+            handleDownload={handleDownload}
+          />
+        </>
       )}
     </form>
   );
